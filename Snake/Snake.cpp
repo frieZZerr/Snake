@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <conio.h>
 #include <windows.h>
 #include <time.h>
@@ -50,7 +50,9 @@ void Menu() {
 
     system("cls");
 }
-
+/*
+    Draws the current frame on screen
+*/
 void Draw() {
 
     system("cls");
@@ -73,6 +75,7 @@ void Draw() {
 
     cout << "~~~~~~SNAKE " << dif << "~~~~~~" << endl << endl;
 
+    //  Upper border
     for (int i = 0; i < WIDTH + 2; i++)
         cout << "#";
     cout << endl;
@@ -80,17 +83,19 @@ void Draw() {
     for (int i = 0; i < HEIGHT; i++) {
         for (int j = 0; j < WIDTH; j++) {
 
+            //  Left border
             if (j == 0)
                 cout << "#";
 
-            if (i == y && j == x)
+            if (i == y && j == x)   //  Snake position
                 cout << "O";
-            else if (i == fruitY && j == fruitX)
+            else if (i == fruitY && j == fruitX)    //  Fruit position
                 cout << "F";
             else {
                 bool print = false;
                 for (int k = 0; k < nTail; k++) {
 
+                    //  Printing tail
                     if (tailX[k] == j && tailY[k] == i) {
                         cout << "o";
                         print = true;
@@ -100,12 +105,14 @@ void Draw() {
                     cout << " ";
             }
             
+            //  Right border
             if (j == WIDTH - 1)
                 cout << "#";
         }
         cout << endl;
     }
 
+    //  Bottom border
     for (int i = 0; i < WIDTH + 2; i++)
         cout << "#";
     cout << endl;
@@ -113,6 +120,9 @@ void Draw() {
     cout << "Score : " << score << endl;
 }
 
+/*
+    Getting input from keyboard
+*/
 void Input()
 {
     if (_kbhit()) {
@@ -140,7 +150,7 @@ void Input()
             gameOver = true;
             break;
 
-        //  Hidden bonus
+        //  Hidden bonus ¯\_(ツ)_/¯
         case 'p':
             nTail++;
             score += 10;
