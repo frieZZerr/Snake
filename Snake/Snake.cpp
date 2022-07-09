@@ -18,7 +18,7 @@ int score, difficulty;
 
 bool gameOver;
 
-string game = "t";
+string game = "y";
 string dif;
 
 enum eDirection{ STOP = 0, LEFT, RIGHT, UP, DOWN };
@@ -41,11 +41,11 @@ void Menu() {
     system("cls");
 
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~SNAKE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl;
-    cout << endl << "1. EASY (Przenikanie przez sciany wlaczone, zmniejszowa szybkosc rozgrywki) ... " << endl;
-    cout << endl << "2. MEDIUM (Przenikanie przez sciany wylaczone, normalna szybkosc rozgrywki) ... " << endl;
-    cout << endl << "3. HARD (Przenikanie przez sciany wylaczone, maksymalna szybkosc rozgrywki) ... " << endl << endl;
+    cout << endl << "1. EASY (Clipping through walls enabled, slower gameplay speed) ... " << endl;
+    cout << endl << "2. MEDIUM (Clipping through walls disabled, normal gameplay speed) ... " << endl;
+    cout << endl << "3. HARD (Clipping through walls disabled, fast gameplay speed) ... " << endl << endl;
 
-    cout << "Wpisz numer poziomu trudnosci ..." << endl;
+    cout << "Choose your difficulty ..." << endl;
     cin >> difficulty;
 
     system("cls");
@@ -324,19 +324,19 @@ int main() {
             break;
 
         default:
-            cout << "Wybrano nieprawidlowy tryb!!" << endl << endl;
+            cout << "Unaccepted option !!" << endl << endl;
             break;
         }
 
-        cout << endl << "Udalo ci sie zdobyc " << score << " punktow." << endl;
-        cout << "Chcesz zagrac ponownie? 't/n' ..." << endl;
+        cout << endl << "You scored " << score << endl;
+        cout << "Do you want to play again? 'y/n' ..." << endl;
         cin >> game;
 
     }
 
     system("cls");
 
-    cout << "Dziekujemy za rozgrywke :)" << endl;
+    cout << "Thanks for palying :)" << endl;
     Sleep(1000);
 
     system("exit");
